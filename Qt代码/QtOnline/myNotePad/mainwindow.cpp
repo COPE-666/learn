@@ -83,7 +83,7 @@ void MainWindow::keyPressEvent(QKeyEvent *k)
     }
 }
 
-// 继承自qobject的虚函数，也是事件，鼠标按下事件
+// 继承自qobject的虚函数，也是事件，鼠标按下事件，111
 void MainWindow::mousePressEvent(QMouseEvent *m)
 {
     // 获取光标的位置
