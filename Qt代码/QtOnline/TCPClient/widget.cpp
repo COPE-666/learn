@@ -7,7 +7,7 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    socket = new QTcpSocket;   //创建socket对象
+    socket = new QTcpSocket;   //初始化创建socket对象
 }
 
 Widget::~Widget()
@@ -22,11 +22,11 @@ void Widget::on_cancelButton_clicked()
 
 void Widget::on_connectButton_clicked()
 {
-    //获取ip地址和端口号
+    //获取输入的公网ip地址和端口号
     QString IP = ui->ipLineEdit->text();
     QString port = ui->portLineEdit->text();
 
-    //连接服务器
+    //连接服务器，端口转为短整型
     socket->connectToHost(QHostAddress(IP), port.toShort());
 
     //连接服务器成功，socket对象会发出信号

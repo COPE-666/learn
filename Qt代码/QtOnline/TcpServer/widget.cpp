@@ -6,8 +6,10 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    // 只有服务端才有对象，客户端没有
     server = new QTcpServer;
 
+    // 监听8000端口
     server->listen(QHostAddress::AnyIPv4, PORT);
 
     //客户端发起连接，server发出信号
@@ -24,7 +26,7 @@ void Widget::newClientHandler()
     //建立TCP连接
     QTcpSocket *socket = server->nextPendingConnection();
     //socket->peerAddress();   //获取客户端地址
-    //socket->peerPort();      //获取客户端的端口号
+    //socket->peerPort(); //获取客户端的端口号，注意不是服务端监听的端口8000
 
     ui->ipLineEdit->setText(socket->peerAddress().toString());
     ui->portLineEdit->setText(QString::number(socket->peerPort()));
