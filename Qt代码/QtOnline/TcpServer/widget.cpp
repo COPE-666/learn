@@ -35,9 +35,9 @@ void Widget::newClientHandler()
     // 同样也可以通过readyread信号捕获服务端发送给客户端消息
     //connect(socket, &QTcpSocket::readyRead, this, &Widget::clientInfoSlot);
 
-    //启动线程
+    //每接收一个客户端的连接，就启动一个线程
     myThread *t = new myThread(socket);   //创建线程对象
-    t->start();                           //开始线程
+    t->start();                           //开始线程，会运行run函数
 
     connect(t, &myThread::sendToWidget, this, &Widget::threadSlot);
 }
