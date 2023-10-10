@@ -16,5 +16,5 @@ void myThread::clientInfoSlot()
 {
     //qDebug() << socket->readAll();
     QByteArray ba = socket->readAll();
-    emit sendToWidget(ba);      //发送信号
+    emit sendToWidget(ba);      //发送的自定义的信号
 }

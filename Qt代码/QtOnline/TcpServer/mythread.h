@@ -14,10 +14,10 @@ public:
     void run();     //线程处理函数
 
 signals:
-    void sendToWidget(QByteArray b);
+    void sendToWidget(QByteArray b); //自定义的信号
 
 public slots:
-    void clientInfoSlot();
+    void clientInfoSlot(); // 自定义信号对应的槽函数
 
 private:
     QTcpSocket *socket;

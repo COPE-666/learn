@@ -49,6 +49,8 @@ void Widget::newClientHandler()
 //    ui->mainLineEdit->setText(QString(s->readAll()));
 //}
 
+
+// 参数即发送信号时传的数据
 void Widget::threadSlot(QByteArray b)
 {
     ui->mainLineEdit->setText(QString(b));
