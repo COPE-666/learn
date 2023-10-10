@@ -31,7 +31,8 @@ void Widget::newClientHandler()
     ui->ipLineEdit->setText(socket->peerAddress().toString());
     ui->portLineEdit->setText(QString::number(socket->peerPort()));
 
-    //服务器收到客户端发送的信息，socket发出readyread信号
+    //服务器收到客户端发送的信息，socket发出readyread信号，
+    // 同样也可以通过readyread信号捕获服务端发送给客户端消息
     //connect(socket, &QTcpSocket::readyRead, this, &Widget::clientInfoSlot);
 
     //启动线程
@@ -43,7 +44,7 @@ void Widget::newClientHandler()
 
 //void Widget::clientInfoSlot()
 //{
-//    //获取信号的发出者
+//    //在槽函数中可以通过sender()获取信号的发出者，即上文的socket
 //    QTcpSocket *s = (QTcpSocket *)sender();
 //    ui->mainLineEdit->setText(QString(s->readAll()));
 //}

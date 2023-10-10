@@ -14,7 +14,7 @@ class Chat : public QWidget
     Q_OBJECT
 
 public:
-    explicit Chat(QTcpSocket *s, QWidget *parent = 0);
+    explicit Chat(QTcpSocket *s, QWidget *parent = 0); // 传递的socket参数须在默认参数parent前面
     ~Chat();
 
 private slots:

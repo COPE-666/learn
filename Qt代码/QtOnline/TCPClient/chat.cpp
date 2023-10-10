@@ -25,6 +25,7 @@ void Chat::on_sendButton_clicked()
 {
     QByteArray ba;
     ba.append(ui->lineEdit->text());
+    // 发送内容到服务端
     socket->write(ba);
 }
 

@@ -35,7 +35,11 @@ void Widget::on_connectButton_clicked()
         QMessageBox::information(this, "连接提示", "连接服务器成功");
 
         this->hide();
-        Chat *c = new Chat(socket);    //堆空间创建
+
+        //堆空间创建，即new的方式，否则此函数运行后，变量c就会被自动释放掉。
+        // 且需要用到socket,所以需要传过去
+        Chat *c = new Chat(socket);
+
         c->show();
     });
 
