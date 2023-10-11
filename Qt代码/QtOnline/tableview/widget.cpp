@@ -18,8 +18,9 @@ Widget::Widget(QWidget *parent) :
     {
         QMessageBox::information(this, "连接提示", "连接成功");
 
-        m = new QSqlTableModel;
-        m->setTable("student");
+        m = new QSqlTableModel; // 数据模型
+        m->setTable("student"); // 将要显示的数据库的表与数据模型关联起来
+        // 将数据模型设置关联到ui界面的表格控件模型中
         ui->tableView->setModel(m);
     }
     else
@@ -35,5 +36,5 @@ Widget::~Widget()
 
 void Widget::on_pushButton_clicked()
 {
-    m->select();
+    m->select(); // 提取数据并显示出来
 }
